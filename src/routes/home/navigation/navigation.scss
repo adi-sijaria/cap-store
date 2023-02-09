@@ -1,0 +1,21 @@
+.navigation{
+    display: flex;
+    width:100%;
+    flex-direction: row;
+    height: 75px;
+    background-color: antiquewhite;
+    margin-bottom: 30px;
+    padding:30px;
+    font-size: large;
+}
+.nav-links-container{
+    width:85%;
+    align-items: right;
+    text-align: right;
+    // margin-left: 10px;
+    // margin-top: 30px;
+// font-size: 20px;
+}
+.nav-link{
+    margin-left: 20px;
+}

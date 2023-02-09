@@ -1,43 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
+import { AuthContextProvider } from './Context/AuthContext';
+import Checkout from './routes/Checkout/Checkout.component';
 // import './Categories.style.scss'
-
+import Home from './routes/home/Home';
+import Navigation from './routes/home/navigation/Navigation';
+import Authentication from './routes/home/authentication/authentication';
+import { Routes, Route, Outlet } from 'react-router-dom'
 // import Categoryitem from './Components/Category-item/Categoryitem';
 import Directory from './Components/directory/Directory.component';
+import Shop from './routes/shop/Shop';
 const App = () => {
-  const categories = [
-    {
-      id: 1,
-      title: 'Hats',
-      url:"https://i.ibb.co/cvpntL1/hats.png"
-
-    },
-    {
-      id: 2,
-      title: 'Jackets',
-      url:"https://i.ibb.co/px2tCc3/jackets.png"
-    },
-    {
-      id: 3,
-      title: 'Sneakers',
-      url:"https://i.ibb.co/0jqHpnp/sneakers.png"
-    },
-    {
-      id: 4,
-      title: 'Womens',
-      url:"https://i.ibb.co/GCCdy8t/womens.png"
-    },
-    {
-      id: 1,
-      title: 'Mens',
-      url:"https://i.ibb.co/R70vBrQ/men.png"
-    },
-
-  ];
-
   return (
-    
-  <Directory categories={categories}/>
+    <AuthContextProvider>
+    <Routes>
+      <Route path='/' element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path='shop' element={<Shop />} />
+        <Route path='auth' element={<Authentication />} />
+        <Route path='checkout' element={<Checkout />} />
+      </Route>
+
+
+    </Routes>
+    </AuthContextProvider>
+
+
   );
 };
 
